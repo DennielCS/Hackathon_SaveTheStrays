@@ -1,6 +1,6 @@
 # Save the strays
 
-A mobile-first web application for reporting stray animals in need, with an AI-driven triage system to prioritize rescue efforts for animal shelters.
+A web application for reporting stray animals in need, with an AI-driven triage system to prioritize rescue efforts for animal shelters.
 
 ## Features
 
