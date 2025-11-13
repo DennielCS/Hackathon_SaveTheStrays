@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Generate triage data using AI analysis
+    
     const triageResult = await generateTriageData(imageData, gpsCoordinates)
 
     // Save report to database
@@ -40,8 +40,9 @@ export async function POST(request: NextRequest) {
     })
   } catch (error) {
     console.error('Error processing report:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Internal server error'
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: errorMessage },
       { status: 500 }
     )
   }

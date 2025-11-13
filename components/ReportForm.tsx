@@ -93,7 +93,8 @@ export default function ReportForm() {
         })
 
         if (!response.ok) {
-          throw new Error('Failed to submit report')
+          const errorData = await response.json().catch(() => ({ error: 'Failed to submit report' }))
+          throw new Error(errorData.error || `Failed to submit report (${response.status})`)
         }
 
         const result = await response.json()
@@ -165,7 +166,7 @@ export default function ReportForm() {
               marginBottom: '1rem',
             }}
           >
-            📷 {image ? 'Change Photo' : 'Take/Select Photo'}
+             {image ? 'Change Photo' : 'Take/Select Photo'}
           </button>
           {imagePreview && (
             <div style={{
@@ -217,10 +218,10 @@ export default function ReportForm() {
             }}
           >
             {isLoadingLocation
-              ? '📍 Getting Location...'
+              ? ' Getting Location...'
               : gpsLocation
-              ? '✅ Location Captured'
-              : '📍 Capture GPS Location'}
+              ? ' Location Captured'
+              : ' Capture GPS Location'}
           </button>
           {gpsLocation && (
             <div style={{
@@ -261,7 +262,7 @@ export default function ReportForm() {
             borderRadius: '6px',
             fontSize: '0.9rem',
           }}>
-            ✅ Report submitted successfully!
+             Report submitted successfully!
           </div>
         )}
 

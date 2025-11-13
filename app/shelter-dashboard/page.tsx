@@ -106,7 +106,7 @@ export default function ShelterDashboard() {
             fontSize: '0.95rem',
           }}
         >
-          ← New Report
+           New Report
         </Link>
       </div>
 
@@ -208,7 +208,7 @@ export default function ShelterDashboard() {
                     }}
                     title="Delete this report"
                   >
-                    {deletingId === report.id ? 'Deleting...' : '🗑️ Delete'}
+                    {deletingId === report.id ? 'Deleting...' : 'Delete'}
                   </button>
                 </div>
 
